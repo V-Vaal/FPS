@@ -15,6 +15,7 @@ ipykernel
 # Utilities
 python-dotenv
 joblib
+kagglehub
 
 
 

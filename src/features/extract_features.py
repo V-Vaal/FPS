@@ -1,4 +1,13 @@
-﻿"""Feature extraction utilities."""
+﻿import pandas as pd
+
+
+def extract_features(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Extract behavioral features from raw address activity. Placeholder only.
+    """
+    raise NotImplementedError("Placeholder implementation. See ML/AIDD rules before implementing.")
+
+"""Feature extraction utilities."""
 
 from typing import Dict
 

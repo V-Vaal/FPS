@@ -1,4 +1,13 @@
-﻿"""Evaluation helpers."""
+﻿from typing import Dict
+
+
+def evaluate_model(model, X_test, y_test) -> Dict[str, float]:
+    """
+    Evaluate a trained model using classification metrics (accuracy, F1, recall). Placeholder only.
+    """
+    raise NotImplementedError("Placeholder implementation. See ML/AIDD rules before implementing.")
+
+"""Evaluation helpers."""
 
 from typing import Dict
 

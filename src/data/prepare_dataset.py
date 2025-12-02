@@ -1,4 +1,13 @@
-﻿"""Dataset preparation helpers for FPS."""
+﻿import pandas as pd
+
+
+def prepare_dataset(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Clean and preprocess the raw dataframe: rename columns, handle missing values, normalize types. Placeholder only.
+    """
+    raise NotImplementedError("Placeholder implementation. See ML/AIDD rules before implementing.")
+
+"""Dataset preparation helpers for FPS."""
 
 from typing import Iterable
 

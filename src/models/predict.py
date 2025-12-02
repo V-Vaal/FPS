@@ -1,3 +1,12 @@
+from typing import Dict
+
+
+def predict_address(model, features_df) -> Dict[str, float]:
+    """
+    Predict the fraud class of a single Ethereum address. Placeholder only.
+    """
+    raise NotImplementedError("Placeholder implementation. See ML/AIDD rules before implementing.")
+
 """Inference helpers for trained FPS models."""
 
 from pathlib import Path

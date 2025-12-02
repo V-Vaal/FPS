@@ -1,4 +1,13 @@
-﻿"""Training utilities for FPS models."""
+﻿from typing import Any
+
+
+def train_model(X_train, y_train, model_type: str) -> Any:
+    """
+    Train a ML model (LogisticRegression, RandomForest, XGBoost) inside a scikit-learn pipeline. Placeholder only.
+    """
+    raise NotImplementedError("Placeholder implementation. See ML/AIDD rules before implementing.")
+
+"""Training utilities for FPS models."""
 
 from dataclasses import dataclass
 from typing import Dict, Tuple

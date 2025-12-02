@@ -1,4 +1,14 @@
-﻿"""Feature selection helpers."""
+﻿import pandas as pd
+from typing import List, Tuple
+
+
+def select_features(df: pd.DataFrame) -> Tuple[pd.DataFrame, List[str]]:
+    """
+    Select the most relevant features for ML models. Placeholder only. Return (df_selected, feature_names).
+    """
+    raise NotImplementedError("Placeholder implementation. See ML/AIDD rules before implementing.")
+
+"""Feature selection helpers."""
 
 from typing import List
 
