@@ -1,0 +1,8 @@
+# Always use LF in notebooks to avoid CRLF issues
+*.ipynb text eol=lf
+
+# For Python files: enforce LF (recommended for cross-platform)
+*.py text eol=lf
+
+# For everything else fallback to automatic Git handling
+* text=auto
