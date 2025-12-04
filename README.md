@@ -33,14 +33,18 @@ Provide an end-to-end pipeline able to:
 ```
 fps/
 ├── data/               → raw & processed datasets
+│ ├── raw/
+│ └── processed/
 ├── notebooks/          → exploration & prototyping notebooks
 ├── src/                → production-grade source code
-│   ├── data/           → dataset loading & preprocessing
-│   ├── features/       → feature engineering utilities
-│   ├── models/         → training, evaluation & inference
-│   ├── rules/          → ML rules & AIDD development rules
-│   └── web3/           → on-chain data fetching & utilities
-├── evaluation/         → reports, metrics & visualizations
+│ ├── config/           → dataset registry & project configuration
+│ │ └── datasets.py     → dataset declarations (paths/URLs + formats)
+│ ├── data/             → generic dataset loader & preprocessing utilities
+│ ├── features/         → feature engineering utilities
+│ ├── models/           → training, evaluation & inference
+│ ├── rules/            → ML rules & AIDD development rules
+│ └── web3/             → on-chain data fetching & utilities
+├── evaluation/         → reports, plots & metrics
 └── requirements.txt    → Python dependencies
 ```
 
