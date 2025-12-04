@@ -1,6 +1,10 @@
-﻿# **FPS — Fraud Prediction System**
+﻿![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
+![Status](https://img.shields.io/badge/status-in_progress-orange)
+![License](https://img.shields.io/badge/license-MIT-green)
 
-### **FPS (Fraud Prediction System)** is an AI-driven project designed to identify and classify Ethereum addresses based on their fraud risk level (legit, phishing, scam, exploit).
+# **FPS — Fraud Prediction System**
+
+### **FPS (Fraud Prediction System)** is an AI-driven project designed to identify and classify addresses based on their fraud risk level (legit, phishing, scam, exploit).
 
 The system relies on:
 
@@ -44,18 +48,47 @@ fps/
 
 ## 📦 **Dataset**
 
-Primary dataset:
+The project is dataset-agnostic: no dataset is bundled or automatically downloaded. You can plug in any tabular fraud dataset that describes entities (wallets, addresses, accounts) and their labels.
 
-**Ethereum Fraud Dataset by Activity** (Kaggle)
+Data must live locally or be reachable from an HTTP/HTTPS URL (CSV, Parquet or JSON) and then be declared through the configuration described below.
 
-It contains labeled Ethereum addresses across four categories:
+---
 
--   phishing
--   scam
--   exploit
--   legit
+## 🗂️ **Dataset configuration and loading**
 
-Alongside more than 30 behavioral on-chain features.
+Declare your datasets inside `src/config/datasets.py`. Example:
+
+```
+DATASETS = {
+    "demo_fraud": DatasetConfig(
+        key="demo_fraud",
+        source="data/raw/demo_fraud.csv", # placeholder path
+        file_format="csv",
+        description="Example dataset configuration. Replace with your own dataset file.",
+    ),
+}
+```
+Note: `data/raw/demo_fraud.csv` is not included. Replace this path with your own dataset file.
+
+Then use the generic loader:
+
+```
+from src.data.loader import load_raw_dataset
+
+# Default dataset (DEFAULT_DATASET_KEY)
+df = load_raw_dataset()
+
+# Named dataset
+df = load_raw_dataset("demo_fraud")
+
+# Ad-hoc dataset (bypassing the registry)
+df = load_raw_dataset(
+    source="https://example.com/my_fraud_dataset.parquet",
+    file_format="parquet",
+)
+```
+
+Datasets are not versioned with the repository. Make sure the files exist locally following the configured paths or provide a reachable URL.
 
 ---
 
@@ -103,7 +136,7 @@ Metrics will be added as the project progresses:
 
 ## 🚀 **Roadmap**
 
-### **V1 — Machine Learning (10 days)**
+### **V1 — Machine Learning**
 
 -   dataset exploration
 -   feature engineering
