@@ -45,6 +45,25 @@ Notebooks must never contain business logic or reusable code.
 Anything inside `data/raw/` must remain untouched.  
 All transformations go to `data/processed/`.
 
+### **ML-R4.1 — External data must be materialized locally**
+When data originates from an external API or remote service (e.g., blockchain analytics, SQL endpoints, HTTP/HTTPS data feeds), it must be materialized locally before any modeling step.
+Local materialization requirements:
+- Load external data into a pandas DataFrame
+- Validate structure and types
+- Persist the result in a parquet file under data/processed/
+- Use the parquet file as the only official training input
+
+This ensures reproducibility, debuggability, independence from network conditions, and full control over dataset versioning.
+
+### **ML-R4.2 — External data must be filtered and bounded**
+
+Every external extraction must enforce:
+- a well-defined temporal range (start date and end date),
+- a LIMIT or equivalent row boundary (configurable and optionally disabled),
+- documentation of these filters inside datasets.py.
+
+This prevents uncontrolled dataset growth and guarantees consistent training conditions.
+
 ---
 
 ### **ML-R5 — Always document the dataset lineage**
@@ -171,6 +190,17 @@ Mandatory elements:
 - fixed random seeds  
 - clear installation instructions  
 - input/output versioning  
+
+### **ML-R17.1 — Notebooks must never call external APIs**
+
+Notebooks must not:
+- call external APIs,
+- fetch remote data directly,
+- trigger costly or repeated external queries.
+
+All notebooks must load data exclusively through: `df = load_raw_dataset("<dataset_key>")`
+
+This isolates the training logic from data ingestion, ensures reproducibility and avoids accidental overuse of external services.
 
 ---
 

@@ -28,6 +28,15 @@ This checklist must be followed for:
 - [ ] Missing values strategy is defined  
 - [ ] Outliers are identified and either justified or handled  
 
+    ### External Sources (API / SQL / Dune / similar)
+- [ ] A temporal range is defined for the extraction
+- [ ] A LIMIT (or row boundary) is defined, configurable, or explicitly disabled
+- [ ] The dataset is fetched once, validated, and written to data/processed/*.parquet
+- [ ] The parquet file has been validated (shape, types, missing values)
+- [ ] No external API is called from notebooks
+- [ ] The dataset version and filters are documented in `src/config/datasets.py`
+- [ ] The modeling pipeline always uses the parquet file as input
+
 ---
 
 ## 3. ⚙️ Preprocessing

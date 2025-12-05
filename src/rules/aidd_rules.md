@@ -63,6 +63,15 @@ AI does **not** generate:
 - business rules  
 - fraud heuristics  
 
+### **AIDD-4.1 — AI must preserve the external data ingestion pattern**
+AI assistants must not:
+- remove or bypass the parquet caching mechanism,
+- replace filtered extractions with unbounded external calls,
+- introduce direct API calls inside notebooks,
+- remove temporal filters or LIMIT clauses.
+
+The external ingestion pattern (fetch → validate → parquet → load) must be preserved at all times.
+
 ---
 
 ### **AIDD-5 — AI must never hide complexity**
@@ -132,6 +141,17 @@ Every dependency suggested by AI must be:
 - version-locked  
 - security-checked  
 
+### **AIDD-12bis — AI must not modify external data parameters without explicit justification**
+
+AI-generated changes to any of the following require human validation:
+- temporal ranges (start/end dates),
+- row limits (LIMIT),
+- SQL query structure,
+- dataset schema,
+- parquet paths or formats.
+
+Uncontrolled modifications to data extraction parameters are prohibited.
+
 ---
 
 ### **AIDD-13 — AI cannot generate smart contract code without human supervision**
@@ -174,6 +194,15 @@ FPS development must be explainable and auditable.
 
 ### **AIDD-18 — If AI accelerates you but makes you blind, stop and rethink**
 The goal is to be **faster AND better**, not faster and confused.
+
+### **AIDD-18bis — AI suggestions must remain dataset-safe**
+AI must not propose changes that could:
+- dramatically increase dataset size,
+- trigger excessive external API usage,
+- bypass caching logic,
+- degrade reproducibility.
+
+Any suggestion resulting in unsafe or unbounded datasets must be rejected.
 
 ---
 
