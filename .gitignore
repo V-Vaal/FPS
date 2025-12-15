@@ -2,3 +2,5 @@
 .env
 .cursorrules
 .vscode
+data/raw/*
+!data/raw/.gitkeep
