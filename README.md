@@ -25,10 +25,23 @@ Ce projet vise à démontrer :
 
 ---
 
+## Installation & exécution
+
+```bash
+python -m venv .venv
+# activer l'environnement, puis :
+pip install -r requirements.txt
+jupyter notebook
+```
+Ouvrir ensuite : `notebooks/FPS.ipynb`
+
+---
+
 ## Dataset
 
 - **Source** : Kaggle — *Synthetic Crypto/Web3 Transaction Dataset*
 - **Type** : données transactionnelles synthétiques
+- **Lien** : https://www.kaggle.com/datasets/chusmman/synthetic-cryptoweb3-transaction-dataset
 - **Aucun label de fraude réel fourni**
 
 Colonnes principales :
@@ -123,11 +136,8 @@ Ces limites sont **documentées volontairement**.
 
 ## À propos de l’usage de l’IA
 
-Ce projet a été développé avec l’aide d’outils modernes (LLM, Cursor) utilisés comme **assistants** :
-
-- aucune décision critique n’est déléguée
-- chaque choix est justifié
-- chaque résultat est interprété
+Des outils modernes (ex. Cursor/LLM) ont été utilisés comme assistants pour accélérer l’itération.
+Les choix de méthode (split, métriques, seuil, interprétation) et la cohérence du pipeline sont contrôlés et justifiés dans le notebook.
 
 ---
 
